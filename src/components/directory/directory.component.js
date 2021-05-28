@@ -49,7 +49,7 @@ class Directory extends React.Component {
   render() {
     return (
       <div className="directory-menu">
-        // destructure all the other properties from this.state.sections
+        {/* destructure all the other properties from this.state.sections */}
         {this.state.sections.map(({ id, ...otherSectionProps }) => {
           return <MenuItem key={id} {...otherSectionProps} />;
         })}
