@@ -1,7 +1,10 @@
+/** Firebase App is the core Firebase SDK and is always required and must be listed first */
 import firebase from "firebase/app";
+/** Add the Firebase products that you want to use */
 import "firebase/firestore";
 import "firebase/auth";
 
+/** Firebase "ecomm1" project configuration */
 const config = {
   apiKey: "AIzaSyA7-e1Y9zOyE60NpoRh8J6m9IU9xp4DIkk",
   authDomain: "ecomm1-db.firebaseapp.com",
@@ -11,6 +14,16 @@ const config = {
   appId: "1:949807784065:web:4f62094c8c3c8fd0006d80",
   measurementId: "G-ZE0J2Q9S09",
 };
+
+/** Initialize Firebase */
+firebase.initializeApp(config);
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 /**
  * Use this function to store authenticated users from Firebase Authentication
@@ -42,14 +55,5 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef;
 };
-
-firebase.initializeApp(config);
-
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
-
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export default firebase;
