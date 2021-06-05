@@ -10,7 +10,7 @@ import store from "./redux/store";
 
 /**
  * Provider is the parent component to everything in our application and
- * it provides access to the Store and all the reducers.
+ * it provides access to the Redux Store and all the reducers.
  */
 ReactDOM.render(
   <Provider store={store}>
