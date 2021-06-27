@@ -8,7 +8,10 @@ import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
-
+/**
+ * ReactComponent is special syntax when importing SVG that tells
+ * Create React app to render an SVG image file.
+ */
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 import "./header.styles.scss";
