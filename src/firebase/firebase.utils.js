@@ -4,7 +4,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-/** Firebase "ecomm1" project configuration */
+/** Firebase "ecomm1" Project configuration */
 const config = {
   apiKey: "AIzaSyA7-e1Y9zOyE60NpoRh8J6m9IU9xp4DIkk",
   authDomain: "ecomm1-db.firebaseapp.com",
@@ -26,8 +26,8 @@ provider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 /**
- * Use this function to store authenticated users from Firebase Authentication
- * in the Firestore database in the "users" collection.
+ * Use this function to for authenticated users in Firebase Authentication
+ * and store them in the Firestore database in the "users" collection.
  * @param {*} userAuth
  * @param {*} additionalData
  * @returns userRef -- object that is associated with the user's Firebase created UID.
@@ -57,3 +57,4 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 };
 
 export default firebase;
+

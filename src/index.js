@@ -9,8 +9,8 @@ import App from "./App";
 import store from "./redux/store";
 
 /**
- * Provider is the parent component to everything in our application and
- * it provides access to the Redux Store and all the reducers.
+ * <Provider></Provider> is the parent component to everything in the application and
+ * it provides access to the Redux Store and all the reducers via the store prop.
  */
 ReactDOM.render(
   <Provider store={store}>
