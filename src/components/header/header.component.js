@@ -50,15 +50,19 @@ const Header = ({ currentUser, hidden }) => {
 //   hidden,
 // });
 
+/**
+ * Refactor using selectors to grab slices of state.
+ */
 // const mapStateToProps = (state) => ({
 //   currentUser: selectCurrentUser(state),
 //   hidden: selectCartHidden(state)
 // });
 
 /**
- * Instead of passing a function with a state argument to mapStateToProps
- * createStructuredSelector takes an object with props and selectors and
- * automatically passes state into each selector.
+ * Refactor using a "reselect" function called "createStructuredSelector."
+ * Instead of passing a function with a "state" argument to "mapStateToProps"
+ * "createStructuredSelector" takes an object with keys and values from
+ * assigned selectors and automatically passes state into each selector.
  */
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,

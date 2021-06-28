@@ -1,16 +1,18 @@
 import { createSelector } from "reselect";
 
 /**
- * Input selector type that gets the entire state and selects and return a part of it.
- * In this case it returns the cart state.
+ * Input selector type that gets the entire state and selects and return a part of it
+ * usually one level deep.
+ * In this case it returns the cart object in state.
  */
 const selectCart = (state) => state.cart;
 
 /**
- * Output selector type that uses createSelector from the reselect package.
- * It gets 2 arguments: 1) an array of input selectors, 2) a function that will
- * return the value we want out of the selectors.
- * Since we use createSelector to create the selector this is now a memoized selector.
+ * Output selector type that uses "createSelector" from the "reselect" package.
+ * It gets 2 arguments: 1) an array of input selectors, 2) a function that receives
+ * the output of input selector and returns a value out of the selected input.
+ * Here "selectCart" returns "cart" from "state" and "selectCartItems" returns "cartItems" from "cart."
+ * Since we use "createSelector" to create the selector this is now a memoized selector.
  */
 export const selectCartItems = createSelector(
   [selectCart],
@@ -22,6 +24,10 @@ export const selectCartHidden = createSelector(
   (cart) => cart.hidden
 );
 
+/**
+ * createSelector can use another output selector as input as the first argument.
+ * Here is gets items that are in the cart and calculates a total.
+ */
 export const selectCartItemsCount = createSelector(
   [selectCartItems],
   (cartItems) =>
