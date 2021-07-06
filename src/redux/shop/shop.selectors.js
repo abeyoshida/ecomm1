@@ -8,6 +8,10 @@ export const selectCollections = createSelector(
   (shop) => shop.collections
 );
 
+export const selectCollectionsForPreview = createSelector(
+  [selectCollections],
+  (collections) => Object.keys(collections).map((key) => collections[key])
+);
 /**
  * "selectCollection" is a selector function that returns a function written as an
  * arrow function that returns the "createSeletor" function from the reselect library.
