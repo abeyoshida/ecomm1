@@ -10,7 +10,8 @@ export const selectCollections = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
   [selectCollections],
-  (collections) => Object.keys(collections).map((key) => collections[key])
+  (collections) =>
+    collections ? Object.keys(collections).map((key) => collections[key]) : []
 );
 /**
  * "selectCollection" is a selector function that returns a function written as an
@@ -34,8 +35,7 @@ export const selectCollectionsForPreview = createSelector(
  * to the title which serves as the url param in the route to each collection in the shop.
  */
 export const selectCollection = memoize((collectionUrlParam) =>
-  createSelector(
-    [selectCollections],
-    (collections) => collections[collectionUrlParam]
+  createSelector([selectCollections], (collections) =>
+    collections ? collections[collectionUrlParam] : null
   )
 );
