@@ -23,13 +23,19 @@ class ShopPage extends React.Component {
   unsubscribeFromSnapshop = null;
 
   componentDidMount() {
-    const { updateCollections } = this.props;
+    // const { updateCollections } = this.props;
     /**
      * Create a reference to a collection that you want to query in the Firestore database.
      * In this case there is a collection called "collections" that holds the data for the shop.
      * Each collection holds 2 collections: items and title.
      */
     const collectionRef = firestore.collection("collections");
+
+    // fetch(
+    //   "https://firestore.googleapis.com/v1/projects/ecomm1-db/databases/(default)/documents/collections"
+    // )
+    //   .then((response) => response.json())
+    //   .then((collections) => console.log(collections));
 
     /**
      * Promise based asynchronous call using .get() of the collectionRef from Firebase
