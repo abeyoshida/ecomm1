@@ -23,7 +23,7 @@ class ShopPage extends React.Component {
   unsubscribeFromSnapshop = null;
 
   componentDidMount() {
-    // const { updateCollections } = this.props;
+    const { updateCollections } = this.props;
     /**
      * Create a reference to a collection that you want to query in the Firestore database.
      * In this case there is a collection called "collections" that holds the data for the shop.
